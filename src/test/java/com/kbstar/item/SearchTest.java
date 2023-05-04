@@ -19,7 +19,7 @@ class SearchTest {
     @Test
     void contextLoads() throws Exception{
 
-        ItemSearch is = new ItemSearch("story","반바지");
+        ItemSearch is = new ItemSearch(110,5000,"jpg","반바지");
         try {
             service.search(is);
             } catch (Exception e) {

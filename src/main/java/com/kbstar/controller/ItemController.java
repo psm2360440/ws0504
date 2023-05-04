@@ -97,6 +97,9 @@ public class ItemController {
 
         List<Item> list = itemService.search(is);
         model.addAttribute("is",is);
+        log.info("--------------------------------------------------------------------------------------------------");
+        log.info(is.toString());
+        log.info("--------------------------------------------------------------------------------------------------");
         model.addAttribute("ilist",list);
         model.addAttribute("contents",dir+"all");
         return "index";

@@ -7,6 +7,12 @@
     <select id="search" parameterType="itemSearch" resultType="item">
         SELECT * FROM item
         <where>
+            <if test = "id !=null and !id.equals('')">
+                AND id > #{id}-10 AND id &lt;= #{id}
+            </if>
+            <if test = "price !=null and !price.equals('')">
+                AND price > #{price}-9999 AND price &lt;= #{price}
+            </if>
             <if test = "imgname !=null and !imgname.equals('')">
                 AND imgname LIKE '%'||#{imgname}||'%'
             </if>

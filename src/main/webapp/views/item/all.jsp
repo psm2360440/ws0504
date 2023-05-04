@@ -31,17 +31,20 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Item All</h6>
             <form id="item_form" class="form-inline well">
-<%--                <div class="form-group">--%>
-<%--                    <label class="control-label col-sm-2" for="loc">Location:</label>--%>
-<%--                    <div class = "col-sm-4">--%>
-<%--                        <select class = "form-control" id = "loc" name = "loc">--%>
-<%--                            <option value = "s"     <c:if test = "${ms.loc == 's'}">selected</c:if>     >100 - 110</option>--%>
-<%--                            <option value = "b"     <c:if test = "${ms.loc == 'b'}">selected</c:if>     >111 - 120</option>--%>
-<%--                            <option value = "j"     <c:if test = "${ms.loc == 'j'}">selected</c:if>     >121 - 130</option>--%>
-<%--                        </select>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
                 <div class="form-group">
+                    <label class="control-label col-sm-2" for="id">ID:</label>
+                    <div class = "col-sm-10">
+                        <!-- id 값에 따른 범위 검색 -->
+                        <select class = "form-control" id = "id" name = "id">
+                            <option value = "110"     <c:if test = "${is.id >100 && is.id <=110}">selected</c:if>     >101 - 110</option>
+                            <option value = "120"     <c:if test = "${is.id >110 && is.id <=120}">selected</c:if>     >111 - 120</option>
+                            <option value = "130"     <c:if test = "${is.id >120 && is.id <=130}">selected</c:if>     >121 - 130</option>
+                            <option value = "140"     <c:if test = "${is.id >130 && is.id <=140}">selected</c:if>     >131 - 140</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- IMG String 검색 -->
                     <label class="control-label col-sm-2" for="imgname">IMGNAME:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="imgname" name="imgname" placeholder="Enter IMGNAME"
@@ -49,10 +52,23 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <!-- Title String 검색 -->
                     <label class="control-label col-sm-2" for="name">Title:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Enter NAME"
                                value = "${is.name}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- price 값에 따른 범위 검색 -->
+                    <label class="control-label col-sm-2" for="price">PRICE:</label>
+                    <div class = "col-sm-10">
+                        <select class = "form-control" id = "price" name = "price">
+                            <option value = "10000"     <c:if test = "${is.price >0 && is.price <=10000}">selected</c:if>     >　1원　-　10,000원</option>
+                            <option value = "20000"     <c:if test = "${is.price >10000 && is.price <=20000}">selected</c:if>     >10,001원 - 20,000원</option>
+                            <option value = "30000"     <c:if test = "${is.price >20000 && is.price <=30000}">selected</c:if>     >20,001원 - 30,000원</option>
+                            <option value = "40000"     <c:if test = "${is.price >30000 && is.price <=40000}">selected</c:if>     >30,001원 - 40,000원</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
