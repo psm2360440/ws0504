@@ -8,7 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Date;
 import java.util.List;
+
+import static oracle.sql.TIMESTAMPTZ.toDate;
 
 @Slf4j
 @SpringBootTest
@@ -19,7 +22,7 @@ class SearchTest {
     @Test
     void contextLoads() throws Exception{
 
-        ItemSearch is = new ItemSearch(110,5000,"jpg","반바지");
+        ItemSearch is = new ItemSearch(110,5000,"jpg","반바지", new Date(2022-05-01));
         try {
             service.search(is);
             } catch (Exception e) {

@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -93,7 +95,18 @@ public class ItemController {
     }
 
     @RequestMapping("/search")
-    public String search(Model model, ItemSearch is) throws Exception {
+    public String search(Model model, ItemSearch is, String reg) throws Exception {
+        //검색 범위 월을 String reg 값으로 받음
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+        Date date = format.parse(reg);
+        //String reg 값을 Date 객체로 담음
+
+        log.info("--------------------------------------------------------------------------------------------------");
+        log.info(date.toString());
+        log.info("--------------------------------------------------------------------------------------------------");
+
+        is.setRdate(date);
+        //ItemSearch 객체의 rdate값으로 넣어줌
 
         List<Item> list = itemService.search(is);
         model.addAttribute("is",is);

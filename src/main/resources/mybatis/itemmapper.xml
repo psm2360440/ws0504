@@ -7,6 +7,8 @@
     <select id="search" parameterType="itemSearch" resultType="item">
         SELECT * FROM item
         <where>
+        <!-- 범위 설정을 위하여 두 가지 값을 받을 수 없어 전달 받은 값에서 아래 범위 값을 뺌
+        이때 부등호가 두개 이상 들어가면 'tag name expected'라는 error가 떠서 두번째 등호는 &lt;로 대체 -->
             <if test = "id !=null and !id.equals('')">
                 AND id > #{id}-10 AND id &lt;= #{id}
             </if>
@@ -18,6 +20,10 @@
             </if>
             <if test = "name !=null and !name.equals('')">
                 AND name LIKE '%'||#{name}||'%'
+            </if>
+            <!--rdate칼럼의 연월만 추출하여 입력받은 rdate의 연월 값과 비교-->
+            <if test = "rdate !=null and !rdate.equals('')">
+                AND TO_CHAR(rdate, 'YYYY-MM') = TO_CHAR(#{rdate}, 'YYYY-MM')
             </if>
         </where>
     </select>

@@ -72,6 +72,16 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="control-label col-sm-2" for="reg">RDATE:</label>
+                        <!-- rdate 값에 따른 범위 검색 -->
+                        <!--'input type = date' 형식으로 바로 입력 받을 경우, 범위 설정을 위해 두가지 값을 받아야해서 힘듦
+                        우선 'type = month'(String)으로 입력 받아 controller에서 date형식으로 변환 후 is에 set할 예정 -->
+                    <div class = "col-sm-10">
+                        <input type="month" class = "form-control" id="reg" name="reg" min="2023-01" max="2023-12" value = "2023-05">
+                        <!--그런데 전달 받은 is의 rdate값은 Date 형식이고 'input type = month'의 형식은 String이라 selected할 수 없어 default value값을 줌-->
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button id="search_btn" type="button" class="btn btn-primary">SEARCH</button>
                     </div>
